@@ -213,6 +213,7 @@ export default {
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    width: 100%;
   }
   .cube-picker-confirm{
     color: #3eb8b4;
