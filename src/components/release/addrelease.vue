@@ -1,11 +1,14 @@
 <!--  -->
 <template>
-<div class=''>
+<div class='addrelease'>
+  <header id="addrl">
+    <div id="back"><i class="iconfont iconfanhui" @click="back()"></i></div>
+  </header>
   <cube-form
   :model="model"
   :options="options"
   @validate="validateHandler"
-  @submit="submitHandler" :action="nihao">
+  @submit="submitHandler">
     <cube-form-group>
       <cube-form-item :field="fields[0]"></cube-form-item>
       <cube-form-item :field="fields[1]"></cube-form-item>
@@ -24,13 +27,13 @@
 <script>
 export default {
   data() {
+    // const that = this;
     return {
       thistime: new Date().toLocaleDateString(),
       thisyear: null,
       thismonth: null,
       thisday: null,
       validity: {},
-      nihao: 'nini',
       valid: undefined,
       model: {
         title: '',
@@ -72,6 +75,11 @@ export default {
                 label: '截止日期',
                 props:{
                   readonly: true
+                },
+                events:{
+                  focus:()=>{
+                    this.showDatePicker()
+                  }
                 },
                 rules: {
                   required: true
@@ -201,10 +209,14 @@ export default {
       this.thisyear = arr[0]
       this.thismonth = arr[1]
       this.thisday = arr[2]
+    },
+    back(){
+      this.$router.go(-1)
     }
   },
   mounted(){
     this.ymd(this.thistime)
+    this.model.dateValue=this.thisyear+'-'+this.thismonth+'-'+this.thisday
   }
 }
 </script>
@@ -221,7 +233,20 @@ export default {
   .cube-picker-confirm:active{
     color: #3ec8c4;
   }
-  h2{
+  #addrelease h2{
     text-align: center;
+  }
+  #addrl{
+    background-color: #3eb8b4;
+    height: 45px;
+    text-align: left;
+  }
+  #back{
+    margin-left: 12px;
+    padding-top: 10px;
+  }
+  #back i{
+    font-size: 1.4rem;
+    color: white;
   }
 </style>
