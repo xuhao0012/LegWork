@@ -180,7 +180,7 @@ export default {
       if (!this.datePicker) {
         this.datePicker = this.$createDatePicker({
           title: '日期选择',
-          min: new Date(this.thisyear,1,1),
+          min: new Date(this.thisyear,0,1),
           max: new Date(2050, 12, 31),
           value: new Date(this.thisyear,this.thismonth-1,this.thisday),
           onSelect: this.selectHandle,
