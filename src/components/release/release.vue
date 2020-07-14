@@ -157,8 +157,10 @@ methods: {
     font-size: 20px;
 }
 #release #content{
-    height: 660px;
-    margin-top: 90px;
+    position: fixed;
+    width: 100%;
+    top: 90px;
+    bottom: 65px;
     background-color: #eee;
 }
 </style>
