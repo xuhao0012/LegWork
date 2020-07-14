@@ -1,26 +1,26 @@
 <template>
 <div id="release">
     <header>
-        <span>发布</span>
+        <span class="title">发布</span>
         <i class="iconfont icontianjia-copy" @click="add()"></i>
     </header>
-    <div id="oncenter">
-        <!-- <div id="sift"><span>已发布</span><span>未发布</span></div>
-            
-            <ul>
-                <li v-for=" item in releaselist" :key="item.index" @click="showdetail(item)">
-                    <div class="r-head">{{item.title}}</div>
-                    <p v-for=" tag in item.tag" :key="tag.index">{{tag}}</p>
-                </li>
-            </ul> -->
+    <div id="sift">
+            <span class="insift">已成交</span>
+            <span class="insift">待完成</span>
+            <span class="insift">未接单</span>
+    </div>
+    <div id="content">
         <cube-scroll
         ref="scroll"
-        :data="releaselist"
         :options="options">
             <ul>
-                <li v-for=" item in releaselist" :key="item.index" @click="showdetail(item)">
-                    <div class="r-head">{{item.title}}</div>
-                    <p v-for=" tag in item.tag" :key="tag.index">{{tag}}</p>
+                <li v-for=" item in releaselist" :key="item.index">
+                    <div class="columntitle">{{item.title}}</div>
+                    <div class="status">{{item.status}}</div>
+                    <div class="columnitems">发布时间：{{item.time}}</div>
+                    <div class="columnitems">接单人：{{item.order}}</div>
+                    <div @click="showdetail(item)" class="command">查看详情</div>
+                    <div class="contact">联系</div>
                 </li>
             </ul>
         </cube-scroll>
@@ -36,25 +36,30 @@ components: {},
 data() {
 //这里存放数据
 return {
-     releaselist: [{title: '校外代购', content: '雄风有个KFC快点搞下', tag: ['校外']},
-    {title: '校内代拿', content: '菜鸟驿站一号位2-24有个椅子', tag: ['校内','代拿']},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事']}],
-    options:{
-        scollbar:{
-            fade: true
-        },
-        bounce:{
-            top: true,
-            bottom: true,
-            left: false,
-            right: false
-        }
-    }
+     releaselist: [{title: '校外代购', content: '雄风有个KFC快点搞下', tag: ['校外'] ,time:'2020-3-2',order: '小王',status: '已成交'},
+    {title: '校内代拿', content: '菜鸟驿站一号位2-24有个椅子', tag: ['校内','代拿'],time:'2020-4-1',order: '小徐', status: '待完成'},
+    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王', status: '未成交'},
+    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王', status: '未成交'},
+    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王', status: '未成交'}]
 };
 },
 //监听属性 类似于data概念
-computed: {},
-//监控data中的数据变化
+computed: {
+    options(){
+        return {
+            pullDownRefresh: false,
+            pullUpLoad: false,
+            scrollbar: true,
+            click: true,
+            probetype: 1
+        }
+  }
+},    
 watch: {},
 //方法集合
 methods: {
@@ -76,7 +81,7 @@ methods: {
   top: 0px;
   width: 100%;
 }
-#release span{
+#release .title{
   margin-left: 20px;
   margin-top: 5px;
   float: left;
@@ -90,11 +95,17 @@ methods: {
     text-align: left;
     margin: 0px;
 }
-#sift{
-    display: block;
+#release #sift{
+    position: fixed;
+    top: 50px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
 }
-#oncenter{
-    padding-top: 60px;
+#release .insift{
+    margin: 10px 0px;
+    color: #3eb8b4;
 }
 #release i{
     float: right;
@@ -103,15 +114,32 @@ methods: {
     color: white;
 }
 #release li{
+    position: relative;
     display: block;
-    padding-left: 5px;
-    border-bottom: 1px solid #cccccc;
-    padding-bottom: 10px;
-    padding-top: 5px;
+    padding:7px;
+    margin: 10px 5px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color:#ffffff;
+    overflow: hidden;
 }
-.r-head{
+#release .columntitle{
     font-weight: bold;
     font-size: 1.2rem;
+    display: inline;
+}
+#release .columnitems{
+    margin: 15px 0px;
+}
+#release .command{
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+}
+#release .contact{
+    position: absolute;
+    bottom: 1px;
+    right: 80px;
 }
 #release p{
     display: inline;
@@ -120,11 +148,17 @@ methods: {
     border: 0.5px solid black;
     border-radius: 5px 5px;
 }
+#release .status{
+    float: right;
+    color: #3eb8b4;
+}
 #none{
     padding-top: 100px;
     font-size: 20px;
 }
-.scroll-list-wrap{
-    height: 350px
+#release #content{
+    height: 660px;
+    margin-top: 90px;
+    background-color: #eee;
 }
 </style>
