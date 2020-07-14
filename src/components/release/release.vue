@@ -13,12 +13,17 @@
                     <p v-for=" tag in item.tag" :key="tag.index">{{tag}}</p>
                 </li>
             </ul> -->
-        <!-- <cube-scroll
+        <cube-scroll
         ref="scroll"
-        :data="item"
+        :data="releaselist"
         :options="options">
-
-        </cube-scroll> -->
+            <ul>
+                <li v-for=" item in releaselist" :key="item.index" @click="showdetail(item)">
+                    <div class="r-head">{{item.title}}</div>
+                    <p v-for=" tag in item.tag" :key="tag.index">{{tag}}</p>
+                </li>
+            </ul>
+        </cube-scroll>
     </div>
     
     <div v-if="!releaselist.length" id="none">你还没有发布需求哦！赶快去发布吧！</div>
@@ -33,7 +38,18 @@ data() {
 return {
      releaselist: [{title: '校外代购', content: '雄风有个KFC快点搞下', tag: ['校外']},
     {title: '校内代拿', content: '菜鸟驿站一号位2-24有个椅子', tag: ['校内','代拿']},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事']}]
+    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事']}],
+    options:{
+        scollbar:{
+            fade: true
+        },
+        bounce:{
+            top: true,
+            bottom: true,
+            left: false,
+            right: false
+        }
+    }
 };
 },
 //监听属性 类似于data概念
@@ -107,5 +123,8 @@ methods: {
 #none{
     padding-top: 100px;
     font-size: 20px;
+}
+.scroll-list-wrap{
+    height: 350px
 }
 </style>

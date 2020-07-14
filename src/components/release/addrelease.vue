@@ -41,7 +41,7 @@ export default {
         dateValue: '',
         textareaValue: '',
         uploadValue: [],
-        money: 0,
+        money: null,
       },
             fields: [
               {
