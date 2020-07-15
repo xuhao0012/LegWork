@@ -101,7 +101,10 @@ methods: {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    height: auto;
+    height: 3rem;
+	align-items: center;
+	/* background-color: #; */
+	border-bottom: #696969 solid 1px;
 }
 #release .insift{
     margin: 10px 0px;
@@ -159,8 +162,8 @@ methods: {
 #release #content{
     position: fixed;
     width: 100%;
-    top: 90px;
-    bottom: 65px;
+    top: 100px;
+    bottom: 68px;
     background-color: #eee;
 }
 </style>

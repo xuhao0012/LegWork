@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="slide">
-      <transition :name="transitionname">
+     <!-- <transition :name="transitionname"> -->
         <router-view/>
-      </transition>
+      <!-- </transition> -->
     </div>
     <foot/>
   </div>

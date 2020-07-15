@@ -79,6 +79,7 @@ export default {
   background-color: #ffffff;
   display: flex;
   justify-content: space-around;
+  border-top: #696969 solid 1px;
 }
 #foot a {
   text-decoration: none;
