@@ -1,4 +1,4 @@
-# schoolbug
+# LegWork
 
 ## Project setup
 ```
