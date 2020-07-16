@@ -5,9 +5,9 @@
         <i class="iconfont icontianjia-copy" @click="add()"></i>
     </header>
     <div id="sift">
-            <span class="insift">已成交</span>
             <span class="insift">待完成</span>
             <span class="insift">未接单</span>
+            <span class="insift">已成交</span>
     </div>
     <div id="content">
         <cube-scroll
@@ -64,7 +64,7 @@ watch: {},
 //方法集合
 methods: {
     add(){
-        this.$router.push('/addrelease')
+        this.$router.push('/release/addrelease')
     },
     showdetail(n){
         this.$router.push({name: 'releasedetail', params: n})
@@ -101,11 +101,11 @@ methods: {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    height: auto;
+    height: 3rem;
+    align-items: center;
 }
 #release .insift{
-    margin: 10px 0px;
-    color: #3eb8b4;
+    border-bottom: #3eb8b4 solid 1px;
 }
 #release i{
     float: right;

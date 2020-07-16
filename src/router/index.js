@@ -29,12 +29,12 @@ export default new Router ({
         component: release,
       },
       {
-        path: '/releasedetail',
+        path: '/release/releasedetail',
         name: 'releasedetail',
         component: releasedetail
       },
       {
-        path: '/addrelease',
+        path: '/release/addrelease',
         name: 'addrelease',
         component: addrelease
       },
