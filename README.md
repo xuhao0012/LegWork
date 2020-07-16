@@ -1,7 +1,4 @@
 # legwork
-=======
-# LegWork
->>>>>>> 9bf126f10a479338492067fe2226e0291fa2a1f8
 
 ## Project setup
 ```
