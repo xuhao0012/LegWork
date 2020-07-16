@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <div id="slide">
+<<<<<<< HEAD
       <!-- <transition :name="transitionname"> -->
+=======
+     <!-- <transition :name="transitionname"> -->
+>>>>>>> 9bf126f10a479338492067fe2226e0291fa2a1f8
         <router-view/>
       <!-- </transition> -->
     </div>

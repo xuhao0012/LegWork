@@ -102,7 +102,13 @@ methods: {
     justify-content: space-around;
     width: 100%;
     height: 3rem;
+<<<<<<< HEAD
     align-items: center;
+=======
+	align-items: center;
+	/* background-color: #; */
+	border-bottom: #696969 solid 1px;
+>>>>>>> 9bf126f10a479338492067fe2226e0291fa2a1f8
 }
 #release .insift{
     border-bottom: #3eb8b4 solid 1px;
@@ -159,8 +165,8 @@ methods: {
 #release #content{
     position: fixed;
     width: 100%;
-    top: 90px;
-    bottom: 65px;
+    top: 100px;
+    bottom: 68px;
     background-color: #eee;
 }
 </style>
