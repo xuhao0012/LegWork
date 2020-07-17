@@ -1,8 +1,8 @@
 <!--  -->
 <template>
 <div class='addrelease'>
-  <header id="addrl">
-    <div id="back"><i class="iconfont iconfanhui" @click="back()"></i></div>
+  <header>
+    <i class="iconfont iconfanhui" @click="back()"></i>
   </header>
   <cube-form
   :model="model"
@@ -220,6 +220,18 @@ export default {
   }
 }
 </script>
+<style lang='scss' scoped>
+@import '../../common/style/main.scss';
+  header{
+    position: relative;
+  }
+  .iconfont{
+    font-size: 1.5rem;
+    color: white;
+    float: left;
+    margin-left: 15px;
+  }
+</style>
 <style>
   .cube-radio-group{
     display: inline-flex;
@@ -233,22 +245,6 @@ export default {
   }
   .cube-picker-confirm:active{
     color: #3ec8c4;
-  }
-  #addrelease h2{
-    text-align: center;
-  }
-  #addrl{
-    background-color: #3eb8b4;
-    height: 45px;
-    text-align: left;
-  }
-  #back{
-    margin-left: 12px;
-    padding-top: 10px;
-  }
-  #back i{
-    font-size: 1.4rem;
-    color: white;
   }
   .cube-radio{
     flex: 0 0 33%;

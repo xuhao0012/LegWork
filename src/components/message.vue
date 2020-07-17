@@ -2,7 +2,7 @@
 <template>
 <div>
     <header>
-        <span>消息</span>
+        <span class="title">消息</span>
     </header>
 </div>
 </template>
@@ -45,6 +45,6 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 }
 </script>
 <style lang='scss' scoped>
-//@import url(); 引入公共css类
+@import '../common/style/main';
 
 </style>

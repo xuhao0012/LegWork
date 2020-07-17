@@ -1,7 +1,7 @@
 <template>
   <div id="discovery">
     <header>
-        <span>发现</span>
+        <span class="title">发现</span>
     </header>
   </div>
 </template>
@@ -43,15 +43,6 @@ components: {
 }
 }
 </script>
-<style>
-#discovery header{
-  background-color: #ccc;
-  padding: 10px 0px;
-  overflow: hidden;
-}
-#discovery span{
-  margin-left: 20px;
-  float: left;
-  font-size: 1.5rem;
-}
+<style lang="scss" scoped>
+  @import "../../common/style/main";
 </style>

@@ -1,21 +1,39 @@
 <!--  -->
 <template>
-<div class=''>
-    {{this.$route.params}}
+<div id='releasedetail'>
+    <header><i class="iconfont iconfanhui" @click="back()"></i><span class='title'>订单详情</span></header>
+    <!-- {{this.$route.params}} -->
+    <div id="content">
+        <ul>
+            <li class="column"> <span>订单号：</span> {{detail.num}}</li>
+            <li class="column"> <span>类别：</span> {{detail.title}}</li>
+            <li class="column"> <span>描述：</span> {{detail.content}}</li>
+            <li class="column"> <span>截止日期：</span> {{detail.time}}</li>
+            <li class="column"> <span>酬金：</span> {{detail.money}}</li>
+            <li class="column"> <span>接单人：</span> {{detail.order}}</li>
+            <li class="column">     
+                <span>图片：</span><br/>
+                <img  v-if="detail.photo" :src="detail.photo" alt="描述图片">
+                <div v-if="!detail.photo">未提供图片</div>
+            </li>
+        </ul>
+        <cube-button>联系</cube-button>
+        <br/>
+        <cube-button>投诉</cube-button>
+    </div>
+    
+    
+
 </div>
 </template>
 
 <script>
-//这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
-//例如：import 《组件名称》 from '《组件路径》';
-
 export default {
-//import引入的组件需要注入到对象中才能使用
 components: {},
 data() {
 //这里存放数据
 return {
-
+    detail: this.$route.params
 };
 },
 //监听属性 类似于data概念
@@ -24,26 +42,34 @@ computed: {},
 watch: {},
 //方法集合
 methods: {
-
+    back(){
+        this.$router.go(-1)
+    }
 },
-//生命周期 - 创建完成（可以访问当前this实例）
-created() {
-
-},
-//生命周期 - 挂载完成（可以访问DOM元素）
-mounted() {
-
-},
-beforeCreate() {}, //生命周期 - 创建之前
-beforeMount() {}, //生命周期 - 挂载之前
-beforeUpdate() {}, //生命周期 - 更新之前
-updated() {}, //生命周期 - 更新之后
-beforeDestroy() {}, //生命周期 - 销毁之前
-destroyed() {}, //生命周期 - 销毁完成
-activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
+mounted(){
+    console.log(this.$route.params.photo)
+}
 }
 </script>
 <style lang='scss' scoped>
-//@import url(); 引入公共css类
-
+@import '../../common/style/main';
+.iconfanhui{
+    float: left;
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 4px;
+    margin-left: 15px;
+}
+#content{
+    position: fixed;
+    top: 50px;
+    width: 90%;
+    padding: 0px 5%;
+}
+.column{
+    border-bottom: 1px solid #dddddd;
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 1.2rem;
+}
 </style>

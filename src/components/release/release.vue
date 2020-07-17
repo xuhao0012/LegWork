@@ -37,7 +37,7 @@ components: {},
 data() {
 //这里存放数据
 return {
-     releaselist: [{tag: '校外代购', title: '雄风有个KFC快点搞下',time:'2020-3-2',order: '小王',status: '已成交'},
+     releaselist: [{tag: '校外代购', title: '雄风有个KFC快点搞下',time:'2020-3-2',order: '小王',status: '已成交',content: '我要一只香辣鸡腿堡',money: 100,photo:"./touxiang.jpeg", num: 12831577},
     {tag: '校内代拿', title: '菜鸟驿站一号位2-24有个椅子',time:'2020-4-1',order: '小徐', status: '待完成'},
     {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王', status: '未成交'},
     {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王', status: '未成交'},
@@ -73,23 +73,8 @@ methods: {
 }
 }
 </script>
-<style>
-#release header{
-  background-color: #3eb8b4;
-  padding: 10px 0px;
-  overflow: hidden;
-  position:fixed;
-  top: 0px;
-  width: 100%;
-}
-#release .title{
-  margin-left: 20px;
-  margin-top: 5px;
-  float: left;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffffff;
-}
+<style lang='scss' scoped>
+@import '../../common/style/main';
 #release ul{
     list-style: none;
     padding: 0px;
