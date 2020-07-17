@@ -226,6 +226,7 @@ export default {
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
+    align-content: flex-start;
   }
   .cube-picker-confirm{
     color: #3eb8b4;
@@ -248,5 +249,8 @@ export default {
   #back i{
     font-size: 1.4rem;
     color: white;
+  }
+  .cube-radio{
+    flex: 0 0 33%;
   }
 </style>

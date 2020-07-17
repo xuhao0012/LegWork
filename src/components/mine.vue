@@ -20,7 +20,7 @@ export default{
 </script>
 <style>
 #big{
-    filter: blur(3px);
+    filter: blur(2px);
     position: fixed;
     left: 0px;
     z-index: -1;

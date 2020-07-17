@@ -15,12 +15,13 @@
         :options="options">
             <ul>
                 <li v-for=" item in releaselist" :key="item.index">
-                    <div class="columntitle">{{item.title}}</div>
+                    <div class="columntitle">{{item.tag}}</div>
                     <div class="status">{{item.status}}</div>
                     <div class="columnitems">发布时间：{{item.time}}</div>
+                    <div class="columnitems">标题：{{item.title}}</div>
                     <div class="columnitems">接单人：{{item.order}}</div>
-                    <div @click="showdetail(item)" class="command">查看详情</div>
-                    <div class="contact">联系</div>
+                    <button @click="showdetail(item)" class="command">查看详情</button>
+                    <button class="contact">联系</button>
                 </li>
             </ul>
         </cube-scroll>
@@ -36,16 +37,16 @@ components: {},
 data() {
 //这里存放数据
 return {
-     releaselist: [{title: '校外代购', content: '雄风有个KFC快点搞下', tag: ['校外'] ,time:'2020-3-2',order: '小王',status: '已成交'},
-    {title: '校内代拿', content: '菜鸟驿站一号位2-24有个椅子', tag: ['校内','代拿'],time:'2020-4-1',order: '小徐', status: '待完成'},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王', status: '未成交'},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王', status: '未成交'},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王' ,status: '未成交'},
-    {title: '寻物启事' , content: '丢失一只小猫', tag: ['校内','寻物启事'],time:'2020-4-13',order: '小王', status: '未成交'}]
+     releaselist: [{tag: '校外代购', title: '雄风有个KFC快点搞下',time:'2020-3-2',order: '小王',status: '已成交'},
+    {tag: '校内代拿', title: '菜鸟驿站一号位2-24有个椅子',time:'2020-4-1',order: '小徐', status: '待完成'},
+    {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王', status: '未成交'},
+    {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王', status: '未成交'},
+    {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王' ,status: '未成交'},
+    {tag: '寻物启事' , title: '丢失一只小猫',time:'2020-4-13',order: '小王', status: '未成交'}]
 };
 },
 //监听属性 类似于data概念
@@ -101,7 +102,7 @@ methods: {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    height: 3rem;
+    height: 2.2rem;
     align-items: center;
 }
 #release .insift{
@@ -117,8 +118,10 @@ methods: {
     position: relative;
     display: block;
     padding:7px;
-    margin: 10px 5px;
-    border: 1px solid #ffffff;
+    height: 170px;
+    margin: 9px 12px;
+    border-bottom: 3px solid #aaaaaa;
+    border-right: 3px solid #aaaaaa;
     border-radius: 5px;
     background-color:#ffffff;
     overflow: hidden;
@@ -126,20 +129,20 @@ methods: {
 #release .columntitle{
     font-weight: bold;
     font-size: 1.2rem;
-    display: inline;
+    margin: 10px 5px;
 }
 #release .columnitems{
-    margin: 15px 0px;
+    margin: 20px 5px;
 }
 #release .command{
     position: absolute;
-    right: 5px;
-    bottom: 1px;
+    right: 10px;
+    bottom: 5px;
 }
 #release .contact{
     position: absolute;
-    bottom: 1px;
-    right: 80px;
+    bottom: 5px;
+    right: 90px;
 }
 #release p{
     display: inline;
@@ -149,8 +152,10 @@ methods: {
     border-radius: 5px 5px;
 }
 #release .status{
-    float: right;
     color: #3eb8b4;
+    position: absolute;
+    top: 15px;
+    right: 10px;
 }
 #none{
     padding-top: 100px;
@@ -159,8 +164,21 @@ methods: {
 #release #content{
     position: fixed;
     width: 100%;
-    top: 100px;
+    top: 85px;
     bottom: 68px;
     background-color: #eee;
+}
+#release button{
+    background-color: #3eb8b4;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+#release button:focus{
+    outline: none;
+}
+#release button:active{
+    background: #3ec8c4;
 }
 </style>
