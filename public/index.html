@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> 
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1926096_41dur3tgx6q.css">
     <title>跑小腿</title>
   </head>
@@ -16,6 +17,13 @@
     <!-- built files will be auto injected -->
   </body>
 </html>
+<script src="https://webapi.amap.com/maps?v=2.0&key=866ad5ac3655ea605d0c47e3813601ab"></script>
+<script>
+    var map = new AMap.Map('container', {
+        viewMode: '2D', // 默认使用 2D 模式，如果希望使用带有俯仰角的 3D 模式，请设置 viewMode: '3D',
+        zoom:18
+    });
+</script>
 <style>
   body{
     margin: 0px;

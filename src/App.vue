@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <div id="slide">
-      <!-- <transition :name="transitionname"> -->
-        <router-view/>
-      <!-- </transition> -->
+      <transition :name="transitionname">
+        <keep-alive>
+          <router-view/>
+        </keep-alive>
+      </transition>
     </div>
     <foot/>
   </div>
@@ -42,28 +44,41 @@ export default {
   width: 100%;
   overflow-x: hidden;
 }
-.slide-left-enter{
-  opacity: 0;
+.slide-left-enter {
   transform: translateX(100%);
 }
-.slide-left-leave-to{
-  opacity: 0;
-  transform: translateX(-100%);
-  position: absolute;
+.slide-left-enter-active{
+  transition: transform .3s;
 }
-.slide-left-enter-active,.slide-left-leave-active{
-  transition: all .5s ease;
+.slide-left-enter-to{
+  transform: translateX(0);
 }
-.slide-right-enter{
-  opacity: 0;
-  transform: translateX(-100%);
+.slide-left-leave {
+  transform: translateX(0);
 }
-.slide-right-leave-to{
-  opacity: 0;
+.slide-left-leave-active {
+  transition: transform .3s;
+}
+.slide-left-leave-to {
+  transform: translateX(0);
+}
+ 
+.slide-right-enter {
+  transform: translateX(0);
+}
+.slide-right-enter-active{
+  transition: transform .3s;
+}
+.slide-right-enter-to{
+  transform: translateX(0);
+}
+.slide-right-leave {
+  transform: translateX(0);
+}
+.slide-right-leave-active {
+  transition: transform .3s;
+}
+.slide-right-leave-to {
   transform: translateX(100%);
-  position: absolute;
-}
-.slide-right-enter-active,.slide-right-leave-active{
-  transition: all .5s ease;
 }
 </style>

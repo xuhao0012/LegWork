@@ -6,7 +6,8 @@
     <div id="content">
         <ul>
             <li class="column"> <span>订单号：</span> {{detail.num}}</li>
-            <li class="column"> <span>类别：</span> {{detail.title}}</li>
+            <li class="column"> <span>类别：</span> {{detail.tag}}</li>
+            <li class="column"> <span>标题：</span> {{detail.title}}</li>
             <li class="column"> <span>描述：</span> {{detail.content}}</li>
             <li class="column"> <span>截止日期：</span> {{detail.time}}</li>
             <li class="column"> <span>酬金：</span> {{detail.money}}</li>
