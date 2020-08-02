@@ -67,8 +67,10 @@ export default{
     z-index: -1;
 }
 #mine .contentcolumn{
-    margin-bottom: 10px;
-    border-top: 1px solid #696969;
+    margin: 10px;
+    /* border-top: 1px solid #696969; */
+    border-radius: 7px;
+    border-bottom: 5px solid #999999;
     height: 40px;
     line-height: 40px;
     font-size: 1.5rem;
